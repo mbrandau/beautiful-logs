@@ -23,7 +23,7 @@ function init() {
       'debug': chalk.bgMagenta('DEBUG'),
       'info': defaultInfoLevel,
       'warn': chalk.bgYellow('WARN') + ' ',
-      'error': chalk.bold.red('ERROR'),
+      'err': chalk.bold.red('ERROR'),
       'fatal': chalk.bgRed.bold('FATAL')
     },
     callbacks = [];
@@ -34,10 +34,6 @@ function init() {
 
   function formatTime(date) {
     return date.toISOString();
-  }
-
-  function println(line) {
-    console.log.apply(this, Array.prototype.slice.call(arguments));
   }
 
   return {
@@ -63,17 +59,17 @@ function init() {
           else if (i == splitMsg.length - 1) s = spaces + lastSeperator;
           else s = spaces + middleSeperator;
         }
-        msg[i] = lf + s + msg[i];
+        splitMsg[i] = lf + s + splitMsg[i];
       }
       const finalMsg = splitMsg.join('\n');
-      println(finalMsg);
+      console.log(finalMsg);
     },
 
     line: function line() {
-      println(fill(cliWidth(), '─'));
+      console.log(fill(cliWidth(), '─'));
     },
     emptyLine: function emptyLine() {
-      println();
+      console.log();
     },
 
     trace: function trace() {
@@ -102,7 +98,7 @@ function init() {
 
     err: function error() {
       let args = Array.prototype.slice.call(arguments);
-      args.unshift('error');
+      args.unshift('err');
       this.log.apply(this, args);
     },
 
