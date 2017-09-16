@@ -67,7 +67,6 @@ function init() {
       }
       const finalMsg = splitMsg.join('\n');
       println(finalMsg);
-      return finalMsg;
     },
 
     line: function line() {
@@ -80,37 +79,37 @@ function init() {
     trace: function trace() {
       let args = Array.prototype.slice.call(arguments);
       args.unshift('trace');
-      return this.log.apply(this, args);
+      this.log.apply(this, args);
     },
 
     debug: function debug() {
       let args = Array.prototype.slice.call(arguments);
       args.unshift('debug');
-      return this.log.apply(this, args);
+      this.log.apply(this, args);
     },
 
     info: function info() {
       let args = Array.prototype.slice.call(arguments);
       args.unshift('info');
-      return this.log.apply(this, args);
+      this.log.apply(this, args);
     },
 
     warn: function warn() {
       let args = Array.prototype.slice.call(arguments);
       args.unshift('warn');
-      return this.log.apply(this, args);
+      this.log.apply(this, args);
     },
 
     err: function error() {
       let args = Array.prototype.slice.call(arguments);
       args.unshift('error');
-      return this.log.apply(this, args);
+      this.log.apply(this, args);
     },
 
     fatal: function fatal() {
       let args = Array.prototype.slice.call(arguments);
       args.unshift('fatal');
-      return this.log.apply(this, args);
+      this.log.apply(this, args);
     },
 
     addCallback: function addCallback(callback) {
