@@ -28,21 +28,20 @@ describe('beautiful-logs', function() {
       });
     });
 
+    sinon.spy(console, 'log');
     describe('.lineEmpty()', function() {
       it('should be called once', function() {
           const logger = init();
-          sinon.spy(logger, 'emptyLine');
-          logger.emptyLine('trace', 'Test message!');
-          expect(logger.emptyLine.calledOnce).to.be.true;
+          logger.emptyLine();
+          expect(console.log.calledOnce).to.be.true;
       })
     })
 
     describe('.line()', function() {
       it('should be called once', function() {
         const logger = init();
-        sinon.spy(logger, 'line');
         logger.line();
-        expect(logger.line.calledOnce).to.be.true;
+        expect(console.log.calledOnce).to.be.true;
       })
     })
   });
