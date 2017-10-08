@@ -1,7 +1,7 @@
 {
   "name": "beautiful-logs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Package for generating more beautiful logs",
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha",
