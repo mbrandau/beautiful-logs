@@ -1,6 +1,6 @@
 {
   "name": "beautiful-logs",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "description": "It's time to ditch console.log, and time to start writing beautiful-logs.",
   "main": "index.js",
   "scripts": {
