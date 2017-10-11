@@ -36,6 +36,14 @@ function init() {
     return date.toISOString();
   }
 
+  var error = function(){
+    return function(){
+        let args = Array.prototype.slice.call(arguments);
+        args.unshift('err');
+        this.log.apply(this, args);
+    }	
+  }
+  
   return {
     log: function log(level) {
       const date = new Date();
@@ -96,11 +104,9 @@ function init() {
       this.log.apply(this, args);
     },
 
-    err: function error() {
-      let args = Array.prototype.slice.call(arguments);
-      args.unshift('err');
-      this.log.apply(this, args);
-    },
+    err : error(),
+
+    error:  error(),
 
     fatal: function fatal() {
       let args = Array.prototype.slice.call(arguments);
