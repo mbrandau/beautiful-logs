@@ -22,7 +22,7 @@ describe('beautiful-logs', function() {
         logger[level]('Test message!');
       }
 
-      const levels = ['trace', 'debug', 'info', 'warn', 'err', 'fatal'];
+      const levels = ['trace', 'debug', 'info', 'warn', 'error', 'fatal'];
       levels.forEach(level => {
         it(`should be called ${level}`, generateTest(level));
       });

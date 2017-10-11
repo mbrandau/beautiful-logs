@@ -23,7 +23,7 @@ function init() {
       'debug': chalk.bgMagenta('DEBUG'),
       'info': defaultInfoLevel,
       'warn': chalk.bgYellow('WARN') + ' ',
-      'err': chalk.bold.red('ERROR'),
+      'error': chalk.bold.red('ERROR'),
       'fatal': chalk.bgRed.bold('FATAL')
     },
     callbacks = [];
@@ -39,7 +39,7 @@ function init() {
   var error = function(){
     return function(){
         let args = Array.prototype.slice.call(arguments);
-        args.unshift('err');
+        args.unshift('error');
         this.log.apply(this, args);
     }	
   }
