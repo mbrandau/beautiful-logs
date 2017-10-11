@@ -24,6 +24,7 @@ function init() {
       'info': defaultInfoLevel,
       'warn': chalk.bgYellow('WARN') + ' ',
       'err': chalk.bold.red('ERROR'),
+      'error': chalk.bold.red('ERROR'),
       'fatal': chalk.bgRed.bold('FATAL')
     },
     callbacks = [];
@@ -34,6 +35,12 @@ function init() {
 
   function formatTime(date) {
     return date.toISOString();
+  }
+
+  function error(){
+      let args = Array.prototype.slice.call(arguments);
+      args.unshift('err');
+      this.log.apply(this, args);
   }
 
   return {
@@ -96,11 +103,9 @@ function init() {
       this.log.apply(this, args);
     },
 
-    err: function error() {
-      let args = Array.prototype.slice.call(arguments);
-      args.unshift('err');
-      this.log.apply(this, args);
-    },
+    err: error(),
+
+    error: error(),
 
     fatal: function fatal() {
       let args = Array.prototype.slice.call(arguments);
