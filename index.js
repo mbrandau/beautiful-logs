@@ -24,6 +24,7 @@ function init() {
       'info': defaultInfoLevel,
       'warn': chalk.bgYellow('WARN') + ' ',
       'err': chalk.bold.red('ERROR'),
+      'error': chalk.bold.red('ERROR'),
       'fatal': chalk.bgRed.bold('FATAL')
     },
     callbacks = [];
