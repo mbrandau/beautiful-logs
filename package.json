@@ -3,6 +3,7 @@
   "version": "1.0.1-0",
   "description": "It's time to ditch console.log, and time to start writing beautiful-logs.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
